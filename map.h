@@ -7,9 +7,9 @@
 class Map : public QObject, public QGraphicsItem
 {
     Q_OBJECT
+
 public:
     Map();
-
 
 };
 

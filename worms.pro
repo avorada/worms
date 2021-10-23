@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT       += opengl
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -12,11 +12,12 @@ SOURCES += \
     button.cpp \
     engine.cpp \
     gameobject.cpp \
+    gamewindow.cpp \
     logic.cpp \
     main.cpp \
-    mainmenu.cpp \
     mainscene.cpp \
     map.cpp \
+    menuwindow.cpp \
     playerobject.cpp \
     settings.cpp \
     weaponsmenu.cpp
@@ -25,10 +26,11 @@ HEADERS += \
     button.h \
     engine.h \
     gameobject.h \
+    gamewindow.h \
     logic.h \
-    mainmenu.h \
     mainscene.h \
     map.h \
+    menuwindow.h \
     playerobject.h \
     settings.h \
     weaponsmenu.h

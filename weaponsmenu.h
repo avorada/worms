@@ -9,7 +9,6 @@ class WeaponsMenu : public QObject, public QGraphicsItem
 public:
     WeaponsMenu();
 
-signals:
 
 };
 

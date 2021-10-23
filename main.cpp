@@ -1,6 +1,6 @@
 #include "map.h"
 
-#include <mainmenu.h>
+#include <menuwindow.h>
 #include <QApplication>
 #include <mainscene.h>
 
@@ -8,10 +8,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    MainMenu menu;
-
+    MenuWindow menu;
 
     menu.showFullScreen();
+
+
 
 
 

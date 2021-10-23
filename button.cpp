@@ -5,78 +5,40 @@
 #include <button.h>
 
 
-button::button()
+Button::Button()
 {
-  setAcceptedMouseButtons(Qt::LeftButton);
-  setAcceptHoverEvents(true);
-}
-//------------------------------------------------------------------------------
 
-QRectF button::boundingRect() const
-{
-  return QRectF(0, 0, mWidth, mHeigth);
 }
 
-//------------------------------------------------------------------------------
-void button::enableMouseMoving()
-{
-  mIsMovable = true;
-}
-//------------------------------------------------------------------------------
-void button::disableMouseMoving()
-{
-  mIsMovable = false;
-}
-//------------------------------------------------------------------------------
-void button::setImage(QString aPath, QString aPathHover)
-{
-  mPixMap.load(aPath);
-  mPixMapHover.load(aPathHover);
-
-  mWidth  = mPixMap.width();
-  mHeigth = mPixMap.height();
-}
-//------------------------------------------------------------------------------
-void button::setGeometry(int aWidth, int aHeight)
-{
-  mWidth  = aWidth;
-  mHeigth = aHeight;
-}
-//------------------------------------------------------------------------------
-void button::paint(QPainter *painter,
-                   const QStyleOptionGraphicsItem */*option*/,
-                   QWidget */*widget*/)
-{
-  if(mHover)
-    painter->drawPixmap(0,0, mWidth, mHeigth, mPixMapHover);
-  else
-    painter->drawPixmap(0,0, mWidth, mHeigth, mPixMap);
-}
-//------------------------------------------------------------------------------
-void button::hoverEnterEvent(QGraphicsSceneHoverEvent*)
-{
-  //qWarning() << "Enter";
-  mHover = true;
-  QGraphicsItem::update();
-}
-//------------------------------------------------------------------------------
-void button::hoverLeaveEvent(QGraphicsSceneHoverEvent*)
-{
-  //qWarning() << "Leave";
-  mHover = false;
-  QGraphicsItem::update();
-}
-//------------------------------------------------------------------------------
-void button::mousePressEvent(QGraphicsSceneMouseEvent *aEvent)
-{
-  mStartMovePos = aEvent->pos();
-  mIsMoving = false;
-}
-//------------------------------------------------------------------------------
-
-void button::mouseReleaseEvent(QGraphicsSceneMouseEvent *apEvent)
-{
-  if(!mIsMoving)
-    emit btnMouseReleaseEvent(apEvent->button());
+void Button::enterEvent(QEnterEvent *) {
+    this->setIcon(hoverIcon);
 }
 
+void Button::leaveEvent(QEvent *)
+{
+    this->setIcon(icon);
+}
+
+void Button::getIcons(QString firstPath, QString secondPath)
+{
+    QPixmap icoPixmap = QPixmap(firstPath);
+    QPixmap icoHoverPixmap = QPixmap(secondPath);
+
+    icon.addPixmap(icoPixmap);
+    hoverIcon.addPixmap(icoHoverPixmap);
+
+    this->setIcon(icoPixmap);
+    this->setIconSize(icoPixmap.rect().size());
+
+    width = icoPixmap.rect().size().width();
+    height = icoPixmap.rect().size().height();
+    this->setGeometry(posX, posY, width, height);
+
+}
+
+void Button::setPos(int x, int y)
+{
+    posX = x;
+    posY = y;
+    this->setGeometry(posX, posY, width, height);
+}
