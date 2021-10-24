@@ -7,32 +7,37 @@
 #include <QApplication>
 #include <QLayout>
 #include <QLabel>
+#include <QButtonGroup>
 
 
 MenuWindow::MenuWindow()
 {
 
-    QPixmap background("D:\\Projects\\Qt Projects\\worms\\res\\backgroundmenu.png");
+
+
+    QPixmap background(":/res/backgroundmenu.png");
+    //background.
     QLabel *bck = new QLabel();
     bck->setGeometry(0, 0, 1600, 900);
     bck->setPixmap(background);
 
-    startGameBtn.getIcons("D:\\Projects\\Qt Projects\\worms\\res\\start.png", "D:\\Projects\\Qt Projects\\worms\\res\\start_hover.png");
+    startGameBtn.getIcons(":/res/start.png", ":/res/start_hover.png");
     startGameBtn.setPos(100, 500);
     connect(&startGameBtn, &Button::clicked, this, &MenuWindow::startGame);
 
-    settingsGameBtn.getIcons("D:\\Projects\\Qt Projects\\worms\\res\\settings.png", "D:\\Projects\\Qt Projects\\worms\\res\\settings_hover.png");
+    settingsGameBtn.getIcons(":/res/settings.png", ":/res/settings_hover.png");
     settingsGameBtn.setPos(100, 600);
     connect(&settingsGameBtn, &Button::clicked, this, &MenuWindow::settingsGame);
 
-    closeGameBtn.getIcons("D:\\Projects\\Qt Projects\\worms\\res\\quit.png", "D:\\Projects\\Qt Projects\\worms\\res\\quit_hover.png");
+    closeGameBtn.getIcons(":/res/quit.png", ":/res/quit_hover.png");
     closeGameBtn.setPos(100, 700);
     connect(&closeGameBtn, &Button::clicked, this, &MenuWindow::closeGame);
 
     setCentralWidget(bck);
-    centralWidget()->layout()->addWidget(&startGameBtn);
+    layout()->addWidget(&startGameBtn);
     layout()->addWidget(&settingsGameBtn);
     layout()->addWidget(&closeGameBtn);
+
 
 }
 

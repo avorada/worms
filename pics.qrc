@@ -1,0 +1,11 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>res/backgroundmenu.png</file>
+    <file>res/start.png</file>
+    <file>res/start_hover.png</file>
+    <file>res/settings.png</file>
+    <file>res/settings_hover.png</file>
+    <file>res/quit.png</file>
+    <file>res/quit_hover.png</file>
+</qresource>
+</RCC>
