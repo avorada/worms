@@ -14,7 +14,7 @@ public:
     MenuWindow();
 
 
-public slots:
+private slots:
     void startGame();
     void settingsGame();
     void closeGame();

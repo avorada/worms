@@ -7,7 +7,7 @@
 
 Button::Button()
 {
-
+    this->setStyleSheet("background: rgba(0, 0, 0, 0)");
 }
 
 void Button::enterEvent(QEnterEvent *) {
@@ -42,3 +42,8 @@ void Button::setPos(int x, int y)
     posY = y;
     this->setGeometry(posX, posY, width, height);
 }
+/*
+void Button::clicked() {
+
+}
+*/

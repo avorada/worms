@@ -4,7 +4,6 @@
 
 #include <QPushButton>
 
-
 class Button : public QPushButton
 {
   Q_OBJECT
@@ -21,10 +20,13 @@ protected:
   void enterEvent(QEnterEvent *event);
   void leaveEvent(QEvent *event);
 
-
-
   QIcon icon;
   QIcon hoverIcon;
+signals:
+  //void clicked();
+
+
+
 
 
 
